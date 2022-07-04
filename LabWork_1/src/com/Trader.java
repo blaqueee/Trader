@@ -71,6 +71,10 @@ public class Trader {
         }
     }
 
+    public void setNormalSpeed(){
+        this.speed = 3;
+    }
+
     public void buyInitialProducts() {
         ProductType[] productArray = ProductType.values();
         System.out.println("""

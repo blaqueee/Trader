@@ -39,6 +39,7 @@ public class Main {
                 System.out.println("    ---> TRADER LOST THE GAME <---");
                 return;
             }
+            trader.setNormalSpeed();
             dayCounter++;
 //            trader.printProducts();  //можете удалить комментарий, чтобы каждый день видеть состояние продуктов
         }
