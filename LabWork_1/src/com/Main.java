@@ -20,11 +20,11 @@ public class Main {
         int dayCounter = 1;
 
         while (city.getDistanceToCity() != 0) {
-            Collections.shuffle(events);
             System.out.print("       <- Tap ENTER to continue ->");
             String str = new Scanner(System.in).nextLine();
             System.out.printf("%n             <=== DAY %s ===>%n", dayCounter);
 
+            Collections.shuffle(events);
             Usable event = events.get(0);
             event.doEvent(trader, city);
 
@@ -41,7 +41,7 @@ public class Main {
             }
             trader.setNormalSpeed();
             dayCounter++;
-//            trader.printProducts();  //можете удалить комментарий, чтобы каждый день видеть состояние продуктов
+            trader.printProducts();  //можете удалить эту строку, чтобы не видеть состояние продуктов на каждый день
         }
 
         trader.sellProducts();

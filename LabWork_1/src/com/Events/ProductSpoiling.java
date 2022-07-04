@@ -3,7 +3,7 @@ package com.Events;
 import com.City;
 import com.Products.Product;
 import com.Trader;
-import com.productStates.ProductState;
+import com.Products.ProductState;
 
 import java.util.ArrayList;
 import java.util.Random;

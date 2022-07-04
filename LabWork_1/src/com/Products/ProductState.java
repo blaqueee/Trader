@@ -1,4 +1,4 @@
-package com.productStates;
+package com.Products;
 
 public enum ProductState {
     NORMAL(1.2),

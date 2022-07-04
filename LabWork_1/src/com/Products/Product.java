@@ -1,7 +1,5 @@
 package com.Products;
 
-import com.productStates.ProductState;
-
 public class Product {
     private int weight;
     private ProductType type;

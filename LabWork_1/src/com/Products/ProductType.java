@@ -7,10 +7,10 @@ public enum ProductType {
 
     MEAT("Meat", 5, 2000),
     DRIED_FRUITS("Dried fruits", 3, 500),
-    CORN("Corn", 3, 450),
-    FLOUR("Flour", 25, 5000),
-    FABRICS("Fabrics", 1, 3000),
-    DYE("Dye", 10, 1700);
+    CORN("Corn", 3, 1000),
+    FLOUR("Flour", 10, 1000),
+    FABRICS("Fabrics", 1, 1000),
+    DYE("Dye", 10, 2000);
 
     private String name;
     private int weight;
