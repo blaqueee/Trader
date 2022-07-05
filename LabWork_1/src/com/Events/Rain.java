@@ -14,12 +14,16 @@ public class Rain implements Usable{
                            "|              IT IS RAINING             |");
         System.out.printf(format, "SPEED -2");
 
+        setSpeed(trader);
+        checkDistance(trader, city);
+        spoilProduct(trader);
+    }
+
+    public void setSpeed(Trader trader) {
         if (checkSpeed(trader))
             trader.setSpeed(trader.getSpeed() - 2);
         else
             trader.setSpeed(trader.getMinSpeed());
-
-        spoilProduct(trader);
     }
 
     private boolean checkSpeed(Trader trader){

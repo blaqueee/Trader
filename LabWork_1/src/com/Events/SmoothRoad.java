@@ -10,6 +10,10 @@ public class SmoothRoad implements Usable {
                            "|            UHH, SMOOTH ROAD            |");
         System.out.printf(format, "SPEED +2");
 
+        setSpeed(trader);
+        checkDistance(trader, city);
+    }
+    public void setSpeed(Trader trader) {
         if (checkSpeed(trader))
             trader.setSpeed(trader.getSpeed() + 2);
         else

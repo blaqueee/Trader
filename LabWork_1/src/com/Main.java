@@ -28,12 +28,10 @@ public class Main {
             Usable event = events.get(0);
             event.doEvent(trader, city);
 
-            if (!event.getClass().equals(BrokenWheel.class) && !event.getClass().equals(River.class)) {
-                trader.startMovingToCity(city);
-            }
             if (city.getDistanceToCity() != 0) {
                 System.out.printf("DISTANCE LEFT: %s%n%n", city.getDistanceToCity());
             }
+
             if (trader.getProducts().size() == 0) {
                 trader.printProducts();
                 System.out.println("    ---> TRADER LOST THE GAME <---");
@@ -70,6 +68,7 @@ public class Main {
         events.add(new River());
         events.add(new MeetLocal());
         events.add(new Robbers());
+        events.add(new RoadShop());
         events.add(new ProductSpoiling());
 
         return events;

@@ -15,5 +15,6 @@ public class MeetLocal implements Usable{
         System.out.printf(format, distance);
 
         city.setDistanceToCity(city.getDistanceToCity() - randomDistance);
+        checkDistance(trader, city);
     }
 }

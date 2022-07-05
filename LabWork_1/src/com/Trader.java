@@ -62,15 +62,6 @@ public class Trader {
         products.sort(cmp);
     }
 
-    public void startMovingToCity(City city) {
-        if (city.getDistanceToCity() - this.speed > 0)
-            city.setDistanceToCity(city.getDistanceToCity() - this.speed);
-        else {
-            System.out.println("\n  ===>  TRADER HAS ARRIVED TO " + city.getName() + "!  <===\n");
-            city.setDistanceToCity(0);
-        }
-    }
-
     public void setNormalSpeed(){
         this.speed = 3;
     }

@@ -10,5 +10,11 @@ public class NormalDay implements Usable{
         System.out.println("+----------------------------------------+\n" +
                            "|                USUAL DAY               |");
         System.out.printf(format, "NOTHING HAPPENED");
+        setSpeed(trader);
+        checkDistance(trader, city);
+    }
+
+    public void setSpeed(Trader trader) {
+        trader.setNormalSpeed();
     }
 }

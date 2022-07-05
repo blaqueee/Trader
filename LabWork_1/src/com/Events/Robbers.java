@@ -23,6 +23,7 @@ public class Robbers implements Usable{
             giveTheBestProduct(products);
 
         trader.setProducts(products);
+        checkDistance(trader, city);
     }
 
     private void giveTheBestProduct(ArrayList<Product> products){

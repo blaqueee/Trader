@@ -23,9 +23,10 @@ public class ProductSpoiling implements Usable{
         System.out.printf(format, spoiled);
         products.set(randomProductIndex, product);
         trader.setProducts(products);
+        checkDistance(trader, city);
     }
 
-    public void spoilProduct(Product product){
+    private void spoilProduct(Product product){
         int index = getIndexOfState(product);
         ProductState[] states = ProductState.values();
 
