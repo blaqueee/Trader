@@ -56,17 +56,17 @@ public class Trader {
         this.money = money;
     }
 
-    public void spoilProduct(Product product){
+    public void spoilProduct(Product product) {
         product.getQuality().spoilProduct(product);
     }
 
-    public void sortProducts(){
+    public void sortProducts() {
         Comparator<Product> cmp = Comparator.comparing(Product::getName);
 
         products.sort(cmp);
     }
 
-    public void setNormalSpeed(){
+    public void setNormalSpeed() {
         this.speed = 3;
     }
 
@@ -77,28 +77,24 @@ public class Trader {
                 +---------------+----------+-------------+
                 |    PRODUCT    |  WEIGHT  |    PRICE    |
                 +---------------+----------+-------------+""");
-        int counter = 0;
         while (true) {
             Product product = new Product(productArray[new Random().nextInt(productArray.length)]);
-            if (checkMoney(product.getPrice()) && checkWeight(product.getWeight())) {
+            if (maxWeightCapacity - weight >= product.getWeight() && money >= product.getWeight()) {
                 products.add(product);
                 money -= product.getPrice();
                 weight += product.getWeight();
                 System.out.printf("| %-13s | %-8s | %-11s |%n" +
                         "+---------------+----------+-------------+%n", product.getName(), product.getWeight(), product.getPrice());
-            } else if (!checkMoney(product.getPrice())) {
-                counter ++;
-                if (counter >= 10) {
-                    System.out.println("         ===> NO MONEY LEFT <=== \n");
-                    return;
-                }
-            } else {
-                counter ++;
-                if (counter >= 10) {
-                    System.out.println(" -CAN'T FIT MORE PRODUCTS, WEIGHT'S FULL-\n");
-                    return;
-                }
+
             }
+            if (!checkMoney()) {
+                System.out.println("         ===> NO MONEY LEFT <=== \n");
+                return;
+            } else if (!checkWeight()) {
+                System.out.println(" -CAN'T FIT MORE PRODUCTS, WEIGHT'S FULL-\n");
+                return;
+            }
+
         }
     }
 
@@ -151,11 +147,40 @@ public class Trader {
             System.out.println("    ===> TRADER HAS NO PROFIT AND NO LOSS <===");
     }
 
-    private boolean checkMoney(int productPrice) {
-        return money - productPrice >= 0;
+    private boolean checkMoney() {
+        ProductType[] pt = ProductType.values();
+        int[] array = new int[pt.length];
+
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = pt[i].getPrice();
+        }
+
+        int min = array[0];
+
+        for (int i : array) {
+            if (min > i)
+                min = i;
+        }
+
+        return money >= min;
     }
 
-    private boolean checkWeight(int productWeight) {
-        return weight + productWeight <= maxWeightCapacity;
+    private boolean checkWeight() {
+        ProductType[] pt = ProductType.values();
+        int[] array = new int[pt.length];
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = pt[i].getWeight();
+        }
+
+        int min = array[0];
+
+        for (int i : array) {
+            if (min > i)
+                min = i;
+        }
+
+        return maxWeightCapacity - weight >= min;
     }
 }
