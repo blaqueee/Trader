@@ -11,7 +11,7 @@ public class MeetLocal implements Usable{
         int randomDistance = new Random().nextInt(4) + 3; // от 3 - 6 (включительно)
         System.out.println("+----------------------------------------+\n" +
                            "|      TRADER MEETS A LOCAL CITIZEN      |");
-        String distance = String.format("MANGED TO TAKE A SHORTCUT: %s KM", randomDistance);
+        String distance = String.format("MANAGED TO TAKE A SHORTCUT: %s KM", randomDistance);
         System.out.printf(format, distance);
 
         city.setDistanceToCity(city.getDistanceToCity() - randomDistance);

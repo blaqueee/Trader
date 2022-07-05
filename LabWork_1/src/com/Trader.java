@@ -56,6 +56,10 @@ public class Trader {
         this.money = money;
     }
 
+    public void spoilProduct(Product product){
+        product.getQuality().spoilProduct(product);
+    }
+
     public void sortProducts(){
         Comparator<Product> cmp = Comparator.comparing(Product::getName);
 
